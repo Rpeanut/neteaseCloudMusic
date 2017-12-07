@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Root from './src/app';
 
-AppRegistry.registerComponent('neteaseCloudMusic', () => App);
+AppRegistry.registerComponent('neteaseCloudMusic', () => Root);
