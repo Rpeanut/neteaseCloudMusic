@@ -12,3 +12,15 @@ export function setLocalStorage(key, value) {
 export function removeLocalStorage(key) {
   return AsyncStorage.removeItem(key);
 }
+
+export function reqAPI(url, data) {
+  return fetch(url, {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify(data),
+  }).then(response => response.json());
+}

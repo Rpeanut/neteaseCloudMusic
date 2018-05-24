@@ -1,24 +1,13 @@
-import React, { PureComponent } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
 import { Provider } from 'react-redux';
-import store from './store';
+import configureStore from './store';
+import AppWithNavigationState from './appNavigator';
 
-class Root extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-  render() {
-    return (
-      <Provider store={store}>
-        <View style={{ flex: 1 }}>
-          <Text>11133333333333</Text>
-        </View>
-      </Provider>
-    );
-  }
+const store = configureStore();
+export default function Root() {
+  return (
+    <Provider store={store}>
+      <AppWithNavigationState />
+    </Provider>
+  );
 }
-
-export default Root;

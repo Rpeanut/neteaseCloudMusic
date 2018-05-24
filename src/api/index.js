@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.0.73.45:3000';
+const BASE_URL = 'http://10.0.36.132:3000';
 
 // 推荐音乐
 export const PERSONALIZED = `${BASE_URL}/personalized`;
