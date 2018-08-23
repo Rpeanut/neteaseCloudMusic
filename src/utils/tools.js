@@ -14,13 +14,16 @@ export function removeLocalStorage(key) {
 }
 
 export function reqAPI(url, data) {
-  return fetch(url, {
-    method: 'post',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    credentials: 'include',
-    body: JSON.stringify(data),
-  }).then(response => response.json());
+  if (data) {
+    return fetch(url, {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(data),
+    }).then(response => response.json());
+  }
+  return fetch(url).then(response => response.json());
 }

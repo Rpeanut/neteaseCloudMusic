@@ -1,7 +1,7 @@
 //  分隔线组件
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { width, onePixel, color } from '../../utils/style';
+import { width, color, onePixel } from '../../utils/style';
 
 const styles = StyleSheet.create({
   line: {

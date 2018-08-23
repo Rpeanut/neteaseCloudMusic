@@ -11,21 +11,21 @@ import { color } from '../../utils/style';
 class DiscoverMusic extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
     tabBarLabel: '发现音乐',
-    tabBarIcon: ({ tintColor }) => <Icon name="ios-disc-outline" size={30} color={tintColor} />,
+    tabBarIcon: ({ tintColor }) => <Icon name="ios-disc-outline" size={31} color={tintColor} />,
     headerTitle: (
       <TouchableOpacity style={styles.searchBar}>
-        <Icon name="ios-search-outline" size={15} color="#cccccc" />
-        <Text style={{ color: '#cccccc' }}>猜你喜欢 最美情侣</Text>
+        <Icon name="ios-search-outline" size={15} color={color.gray} />
+        <Text style={{ color: color.gray, marginLeft: 4 }}>猜你喜欢 最美情侣</Text>
       </TouchableOpacity>
     ),
     headerLeft: (
       <TouchableOpacity onPress={() => navigation.navigate('ModalMenu', { title: '测试' })}>
-        <Icon name="ios-microphone-outline" size={30} color="#ffffff" style={{ marginLeft: 20 }} />
+        <Icon name="ios-microphone-outline" size={30} color={color.white} style={{ marginLeft: 20 }} />
       </TouchableOpacity>
     ),
     headerRight: (
       <TouchableOpacity onPress={() => navigation.navigate('Player', { title: '播放器' })}>
-        <Icon name="ios-stats-outline" size={30} color="#ffffff" style={{ marginRight: 20 }} />
+        <Icon name="ios-stats-outline" size={30} color={color.white} style={{ marginRight: 20 }} />
       </TouchableOpacity>
     ),
     headerStyle: {
@@ -49,7 +49,13 @@ class DiscoverMusic extends PureComponent {
       >
         {types.map((v, i) => {
           const Component = v.component;
-          return <Component key={i} tabLabel={v.title} navigation={this.props.navigation} />;
+          return (
+            <Component
+              key={i}
+              tabLabel={v.title}
+              navigation={this.props.navigation}
+            />
+            );
         })}
       </ScrollableTabView>
     );

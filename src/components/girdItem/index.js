@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { width as screenWidth } from '../../utils/style';
-import { Small, Normal, Tip } from '../text';
+import { Small, Tip, H4 } from '../text';
 
 const GridItem = (props) => {
   const {
-    width = 0.325, height = 0.325, title, subTitle, image, picUrl, item,
+    width = 0.325, height = 0.325, title, subTitle, image, picUrl, item, onPress,
   } = props;
   const styles = StyleSheet.create({
     container: {
@@ -39,20 +39,20 @@ const GridItem = (props) => {
   });
   const calculateCount = count => (count > 10000 && `${(count / 10000).toFixed(1)}万`) || count;
   return (
-    <TouchableOpacity style={[styles.container, this.props.style]} onPress={this.props.onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.imgContainer}>
-        {image && <Image source={image} style={styles.img} />}
-        {picUrl && <Image source={{ uri: picUrl }} style={styles.img} />}
+        {image && <Image source={image} style={styles.img} resizeMode="cover" />}
+        {picUrl && <Image source={{ uri: picUrl }} style={styles.img} resizeMode="cover" />}
         {item.playCount && (
           <View style={styles.tipText}>
             <Icon name="ios-volume-down-outline" color="#ffffff" size={16} />
-            <Small title={calculateCount(item.playCount)} style={{ color: '#ffffff' }} />
+            <Small title={calculateCount(item.playCount)} style={{ color: '#ffffff', marginLeft: 2 }} />
           </View>
         )}
       </View>
       <View style={styles.textContainer}>
         {/* 小标题存在则限制显示一行 */}
-        <Normal title={title} numberOfLines={subTitle ? 1 : 2} />
+        <H4 title={title} numberOfLines={subTitle ? 1 : 2} />
         {subTitle && <Tip title={subTitle} numberOfLines={1} />}
       </View>
     </TouchableOpacity>

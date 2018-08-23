@@ -6,13 +6,17 @@ import {
   initializeListeners,
 } from 'react-navigation-redux-helpers';
 import AppNavigator from './routes';
+import { queryUserInfo } from './actions/common';
 
 const navigationPropConstructor = createNavigationPropConstructor('root');
-// @connect()
-class AppWithNavigationState extends PureComponent {
-  state = {};
-  componentDidMount() {
-    initializeListeners('root', this.props.nav);
+@connect(state => ({
+  nav: state.nav,
+}))
+export default class AppWithNavigationState extends PureComponent {
+  componentWillMount() {
+    const { nav, dispatch } = this.props;
+    initializeListeners('root', nav);
+    dispatch(queryUserInfo());
   }
   render() {
     const { dispatch, nav } = this.props;
@@ -25,6 +29,3 @@ class AppWithNavigationState extends PureComponent {
   }
 }
 
-export default connect(state => ({
-  nav: state.nav,
-}))(AppWithNavigationState);

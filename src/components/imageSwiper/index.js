@@ -21,7 +21,7 @@ export default function ({ banner }) {
           >
             {banner.map((v, i) => (
               <View style={styles.slide} key={i}>
-                <Image resizeMode="stretch" style={styles.image} source={{ uri: `${v.pic}?param=500y200` }} />
+                <Image style={styles.image} source={{ uri: `${v.pic}?param=500y200` }} />
               </View>
             ))}
           </Swiper>

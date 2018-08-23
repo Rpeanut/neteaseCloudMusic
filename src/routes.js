@@ -1,53 +1,62 @@
-import { TabNavigator, StackNavigator, TabBarBottom } from 'react-navigation';
-// import DiscoverMusic from './pages/discovermusic';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import DiscoverMusic from './pages/discovermusic';
 import MyMusic from './pages/mymusic';
 import Account from './pages/account';
 import Friends from './pages/friends';
+import Test from './pages/test';
+import { color } from './utils/style';
 
-const Tab = TabNavigator(
-  {
-    // DiscoverMusic: {
-    //   screen: DiscoverMusic,
-    // },
-    MyMusic: {
-      screen: MyMusic,
+const TabScreens = {
+  DiscoverMusic: {
+    screen: DiscoverMusic,
+    path: '/',
+  },
+  MyMusic: {
+    screen: MyMusic,
+  },
+  Friends: {
+    screen: Friends,
+  },
+  Account: {
+    screen: Account,
+  },
+};
+const TabNav = createBottomTabNavigator(TabScreens, {
+  tabBarPosition: 'bottom',
+  animationEnabled: false,
+  swipeEnabled: false,
+  tabBarOptions: {
+    activeTintColor: color.white,
+    labelStyle: {
+      marginBottom: 2.5,
     },
-    Friends: {
-      screen: Friends,
-    },
-    Account: {
-      screen: Account,
+    style: {
+      backgroundColor: color.tabColor,
     },
   },
-  {
-    tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    swipeEnabled: true,
-    animationEnabled: true,
-    initialRouteName: 'MyMusic',
-    lazy: true,
-    tabBarOptions: {
-      activeTintColor: '#ffffff',
-      inactiveTintColor: '#cccccc',
-      style: {
-        backgroundColor: '#333333',
-      },
-    },
-  },
-);
+});
+TabNav.navigationOptions = (configProps) => {
+  const focusedRouteName = configProps.navigation.state.routes[configProps.navigation.state.index].routeName;
+  const childNavigationOptions = TabScreens[focusedRouteName].screen.navigationOptions;
+  if (childNavigationOptions) {
+    return childNavigationOptions(configProps);
+  }
+  return null;
+};
 
-const AppNavigator = StackNavigator(
+const AppNavigator = createStackNavigator(
   {
-    Tab: { screen: Tab },
+    Tab: {
+      screen: TabNav,
+    },
+    Test: { screen: Test },
   },
   {
     navigationOptions: {
-      headerBackTitle: '返回',
+      headerBackTitle: '返回aaa',
       headerTintColor: '#333333',
       showIcon: true,
     },
-    mode: 'modal',
-    headerMode: 'none',
   },
 );
 export default AppNavigator;

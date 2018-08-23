@@ -12,7 +12,12 @@
     "rules": {
       "max-len": ["error", 120],
       "no-console": 0,
+      "no-shadow": 0,
+      "func-names": 0,
       "no-mixed-operators": 0,
+      "no-case-declarations": 0,
+      "import/prefer-default-export": 0,
+      "react/sort-comp": 0,
       "react/forbid-prop-types": [0, { "forbid": ["any", "array", "object"] }],
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/no-array-index-key": 0,

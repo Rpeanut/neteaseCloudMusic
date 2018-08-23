@@ -21,13 +21,15 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '200',
     color: color.black,
+    lineHeight: 16,
   },
   normal: {
-    fontSize: 12,
+    fontSize: 14,
     color: color.black,
+    lineHeight: 16,
   },
   tip: {
-    fontSize: 11,
+    fontSize: 12,
   },
   small: {
     fontSize: 10,

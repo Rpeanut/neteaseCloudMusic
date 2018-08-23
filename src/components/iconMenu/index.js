@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { width, color } from '../../utils/style';
+import { H4 } from '../text';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +22,6 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 5,
-    fontSize: 11,
     color: color.black,
   },
 });
@@ -30,7 +30,7 @@ const IconMenu = ({ title, icon }) => (
     <View style={styles.iconContainer}>
       <Icon name={icon} size={25} color="#D43C33" />
     </View>
-    <Text style={styles.text}>{title}</Text>
+    <H4 style={styles.text}>{title}</H4>
   </View>
 );
 export default IconMenu;

@@ -1,10 +1,10 @@
-const BASE_URL = 'http://10.0.36.132:3000';
+const BASE_URL = 'http://10.141.90.38:3000';
 
-// 推荐音乐
+// 推荐歌单
 export const PERSONALIZED = `${BASE_URL}/personalized`;
 // 独家放送
 export const PERSONALIZED_PRIVATECONTENT = `${PERSONALIZED}/privatecontent`;
-// 最新音乐
+// 推荐最新音乐
 export const PERSONALIZED_NEWSONG = `${PERSONALIZED}/newsong`;
 // 推荐mv
 export const PERSONALIZED_MV = `${PERSONALIZED}/mv`;
@@ -40,3 +40,5 @@ export const TOP_LIST = `${BASE_URL}/top/list?idx=`;
 export const DJPROGRAM_PERSONALIZED = `${BASE_URL}/personalized/djprogram`;
 // 电台节目
 export const DJ_PROGRAM = `${BASE_URL}/dj/program?rid=`;
+// 获取登录用户信息
+export const USER_INFO = `${BASE_URL}/user/detail?uid=`;

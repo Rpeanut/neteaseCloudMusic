@@ -43,15 +43,17 @@ export const Normal = ({
 );
 
 export const Tip = ({
-  title, style, numberOfLines, children, color,
+  title, style, numberOfLines, color, children,
 }) => (
   <Text style={[styles.tip, style, { color: color || '#000000' }]} numberOfLines={numberOfLines || 0}>
     {title || children}
   </Text>
 );
 
-export const Small = ({ title, style, numberOfLines }) => (
+export const Small = ({
+  title, style, numberOfLines, children,
+}) => (
   <Text style={[styles.small, style]} numberOfLines={numberOfLines || 0}>
-    {title}
+    {title || children}
   </Text>
 );
